@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body, html {
-            height: 100vh;
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            height: 1000vh;
             width: 100vw;
+            overflow-x: hidden;
+        
+            background-color: rgb(123, 255, 0);
         }
 
         header {
-            height: auto;
-            background: rgb(68, 136, 68);
-            padding: 0px;    
+            margin: auto;
+            width: 100%;
+            background: rgb(68, 136, 68);    
             color: white;
+            height: 50px;   
+
+            position: sticky;
+            top: 0;
+            z-index: 2;
         } 
 
         nav {
@@ -29,14 +42,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-         
         }
 
         nav > div#n2{
             background-color: red;
             display: flex;
             width: 200px;
-           justify-content: space-between
+            justify-content: space-between
         }
 
         
@@ -46,11 +58,56 @@
         }
 
         main {
-            background: #239;
-            height: 100vh;
-            width: 100vw;
+            margin: auto;
+            background-color: cyan;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        main > h1 {
+            font-size: 2em;
+            color: darkgoldenrod;
+
+            position: relative;
+            top:0px;
+
+            z-index: 1; /* Z-INDEX É O NIVEL DE SOBREPOSIÇÃO. (QUAL VAI FICAR SOBRE QUAL?) */
+        }
+
+        main > div#d1 {
+            position: relative;
+            background: red;
+            height: 400px;
+            width: 500px;
+            align-self: center;
+        }
+
+        main > div#d1 > p{
+            position: absolute;
+            right: 0%;
+            top: 50%;
+
+            color: indigo;
+        }
+
+        main div#d2 {
+            position: fixed;
+            top: 400px;
+            left: 500px;
+            z-index: 2;
+            background-color:blue;
+        }
+
+        div#d2 > p {
+     
+            
+            color: rgba(255, 0, 0, 0.541);
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -71,10 +128,10 @@
     <main>
         <h1>titulo de nivel 1</h1>
         <div id="d1">
-            essa div fica em cima do titulo
+            <p>essa div fica em cima do titulo</p>
         </div>
         <div id="d2">
-            aqui é div que vai ficar livre por ai
+            <p>aqui é div que vai ficar livre por ai</p>
         </div>
     </main>
 </body>
