@@ -27,20 +27,20 @@
 
         svg {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
         }
 
         circle {
-            height: 150px;
-            width: 150px;
+            height: 180px;
+            width: 180px;
             fill: none;
             stroke: black;
-            stroke-width: 10px;
+            stroke-width: 20px;
             stroke-dasharray: 440;
             stroke-dashoffset: 440;
 
-            transform: translate(5px, 5px);
+            transform: translate(20px, 20px);
         }
 
         circle:nth-child(1) {
@@ -89,8 +89,16 @@
         </div>
     </div>
     <script>
-        
         const btn = document.getElementById('btn')
+        const inp = document.getElementById('n1')
+
+
+        inp.addEventListener("keydown", (event) => {
+            if (event.key === 'Enter') {
+                btn.click()
+            }
+        })
+
         btn.addEventListener("click", () => {
             const inp = document.getElementById('n1')
             const n1 = document.getElementById('porcent')
@@ -111,7 +119,7 @@
             
             function calcular(n1) {
                 const calc =  n1 * 440 / 100
-                return calc - 440
+                return 440 - calc
             }
         })
 

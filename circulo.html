@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circulo 3</title>
+    <style>
+        body {
+            background-color: rgba(123, 123, 252, 0.801);
+        }
+
+        div#caixa {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+        
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.315);
+        }
+
+        svg {
+            width: 150px;
+            height: 150px;
+        }
+
+        svg > circle {
+            fill: none;
+            stroke: black;
+            stroke-width: 10px;
+            transform: translate(5px, 5px);
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+
+        circle#circ1 {
+            stroke: gainsboro;
+            stroke-dashoffset: 0;
+        }
+        
+        circle#circ2 {
+            transition: stroke-dashoffset 2.3s;
+            stroke: rgb(136, 255, 0);
+        }
+
+        div#numbercx {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>digite um valor de 0 a 100</h1>
+    <input type="number" name="ncx" id="ncx">
+    <input type="button" value="enviar" id="btn">
+    <div id="caixa">
+        <div id="caixa-circle">
+            <svg>
+                <circle r="70" cx="70" cy="70" id="circ1"></circle>
+                <circle r="70" cx="70" cy="70" id="circ2"></circle>
+            </svg>
+        </div>
+        <div id="numbercx">
+            <h1 id="pr">0%</h1>
+        </div>
+    </div>
+
+    <script>
+        const cxinp = document.getElementById('ncx')
+        const botão = document.getElementById('btn')
+        
+        botão.addEventListener("click", () => {
+            if (cxinp.value.length === 0) {
+                window.alert("digite um valor antes de enviar")
+            } else {
+                const porcentagem = Number(cxinp.value)
+                if(porcentagem > 100 || porcentagem < 0) {
+                    window.alert("apenas valores entre 0 e 100")
+                } else {
+                    const localPorcent = document.getElementById('pr')
+                    const circle = document.getElementById('circ2')
+                    localPorcent.innerHTML = porcentagem + '%'
+                    circle.style.strokeDashoffset = calculo(porcentagem)
+                }
+            }    
+        })
+        function calculo(n1) {
+            return 440 - (440 * n1) / 100
+        }
+    </script>
+</body>
+</html>
