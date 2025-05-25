@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgba(81, 81, 245, 0.637);
+        }
+
+        div.box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+
+            background-color: rgba(0, 0, 0, 0.445);
+            border-radius: 5px;
+        }
+
+        div.box-circle > svg {
+        
+            height: 150px;
+            width: 150px;
+        }
+
+        circle {
+            width: 150px;
+            height: 150px;
+            fill: none; /* cor de fundo */
+            stroke: black; /* borda */
+            stroke-width: 10px;
+            transform: translate(5px, 5px);
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+
+        circle:nth-child(1) {
+            stroke: gainsboro;
+            stroke-dashoffset: 0;
+           
+        }
+
+        circle:nth-child(2) {
+            transition: stroke-dashoffset 2s;
+            
+            stroke: rgb(0, 255, 0);
+        }
+
+        div.number {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>circulo de progresso</h1>
+
+    <input type="number" name="inpu" id="inpu" placeholder="digite um número">
+    <input type="button" value="enviar" id="btn">
+
+    <div class="box">
+        <div class="box-circle">
+            <svg>
+                <circle r="70" cx="70" cy="70"></circle>
+                <circle r="70" cx="70" cy="70" id="cir"></circle>
+            </svg>
+        </div>
+
+        <div class="number">
+            <h2 id="number">0%</h2>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener("click", () => {
+            const inp = document.getElementById('inpu')
+            const porcent = Number(inpu.value)
+            const circ = document.getElementById('cir')
+            const number = document.getElementById('number')
+
+            circ.style.strokeDashoffset = calc(porcent)
+            number.innerHTML = porcent + '%'
+            
+        })
+        
+        function calc(n1) {
+            const calculo = n1 * 440 / 100
+            return calculo - 440    
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            
+            background-color: rgba(114, 114, 255, 0.479);
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div#caixa {
+            padding: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: rgba(0, 0, 0, 0.527);
+            border-radius: 5px;
+        }
+
+        svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        circle {
+            height: 150px;
+            width: 150px;
+            fill: none;
+            stroke: black;
+            stroke-width: 10px;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+
+            transform: translate(5px, 5px);
+        }
+
+        circle:nth-child(1) {
+            stroke-dashoffset: 0;
+            stroke: gainsboro;
+        
+        }
+        circle:nth-child(2) {
+            transition: stroke-dashoffset 2s;
+            stroke: red;
+        }
+
+        div#numbercx {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>digite a porcentagem</h1>
+    
+    <input type="number" name="n1" id="n1">
+    <input type="button" value="enviar" id="btn">
+    
+    <div id="caixa">
+        <div id="caixa-circle">
+            <svg>
+                <circle r="70" cx="70" cy="70"></circle>
+                <circle r="70" cx="70" cy="70" id="circ"></circle>
+            </svg>
+        </div>
+
+        <div id="numbercx">
+            <h2 id="porcent">0</h2>
+        </div>
+    </div>
+    <script>
+        
+        const btn = document.getElementById('btn')
+        btn.addEventListener("click", () => {
+            const inp = document.getElementById('n1')
+            const n1 = document.getElementById('porcent')
+            const circ = document.getElementById('circ')
+    
+            if (inp.value.length == 0) {
+                window.alert("impossivel continuar. digite outro valor")
+            } else {
+                const valorin = Number(inp.value)
+                if (valorin > 100 || valorin < 0) {
+                    window.alert("impossivel continuar. digite outro valor")
+                } else {
+                    n1.textContent = valorin + '%'
+                    circ.style.strokeDashoffset = calcular(valorin)
+                }
+
+            }
+            
+            function calcular(n1) {
+                const calc =  n1 * 440 / 100
+                return calc - 440
+            }
+        })
+
+    </script>
+</body>
+</html>
