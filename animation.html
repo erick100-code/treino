@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        input[type="button"] {
+            /*  
+                identificador, tempo, tipo de tempo, repete.
+            */
+            animation: mudarCor 3s linear infinite;
+            cursor: pointer;
+
+            width: 200px;
+            height: 200px;
+            font-size: 3em;
+        }
+
+        @keyframes mudarCor {
+            from, to {  /* começa e termina */
+                scale: 100%;
+            }
+
+            50% {/* no meio */
+                scale: 110%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="botão">
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botão animado</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        input[type="button"] {
+            height: 250px;
+            width: 300px;
+            
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+            
+            font-size: 3em;
+        
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .animação {
+            animation: animation 1s linear infinite;
+        }
+
+        @keyframes animation {
+            from, to {
+                scale: 100%;
+            }
+
+            50% {
+                scale: 150%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" value="click" id="inputtt">
+    <script>
+        const inp = document.getElementById('inputtt')
+        
+        // inp.addEventListener("click", () => {
+        //     inp.classList.toggle('animação')
+        // })
+
+        inp.addEventListener("mousedown", () => {
+            inp.classList.add('animação')
+        })
+
+        inp.addEventListener("mouseup", () => {
+            inp.classList.remove('animação')
+        })
+    </script>
+</body>
+</html>
