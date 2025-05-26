@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll 003</title>
+    <style>
+        body {
+            height: 1000vh;
+        }
+        div#caixa {
+            height: 115px;
+            width: 115px;
+            position: fixed;
+            bottom: 60px;
+            right: 1px;
+        }
+
+        circle {
+            fill: none;
+            stroke-width: 10px;
+            stroke: black;
+            
+
+            transform: translate(8px, 7px);
+        }
+
+        circle#c1 {
+            stroke: gainsboro;
+        }
+
+        circle#c2 {
+            stroke: gold;
+        }
+
+        div#ico {
+            width: 115px;
+            height: 115px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        div#ico img {
+            width: 79%;
+            transform: translate(1px, 0px);
+        }
+    </style>
+</head>
+<body>
+    <h1>inicio</h1>
+    <div id="caixa">
+        
+        <svg>
+            <circle r="50" cx="50" cy="50" id="c1"></circle>
+            <circle r="50" cx="50" cy="50" id="c2"></circle>
+        </svg>
+        
+        <div id="ico">
+            <img src="images/botao-de-seta-para-cima.png" id="image">
+        </div>
+    </div>
+
+    <script>
+        const image = document.getElementById('image')
+        image.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
+        const circ2 = document.getElementById('c2')
+        const r = 50
+        const circunferencia = 2 * Math.PI * r
+        
+        circ2.style.strokeDasharray = circunferencia
+        circ2.style.strokeDashoffset = circunferencia
+
+        window.addEventListener("scroll", () => {
+            const atual = window.scrollY
+            const maximoScroll = document.documentElement.scrollHeight - window.innerHeight
+            const progresso = atual / maximoScroll
+            const offset = circunferencia * (1 - progresso)
+            circ2.style.strokeDashoffset = offset
+
+            if (atual == maximoScroll) {
+                image.style.cursor = 'pointer'
+            } else {
+                image.style.cursor = 'default'
+            }
+        })
+    </script>
+</body>
+</html>

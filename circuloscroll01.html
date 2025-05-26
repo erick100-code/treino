@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000vh;
+            width: 100vw;
+        }
+
+        div#box {
+            height: 70px;
+            width: 70px;
+            position: fixed;
+            top: 300px;
+            right: 10px;
+        }
+
+        circle {
+            transform: translate(8px, 7px);
+            fill: none;
+            stroke: black;
+            stroke-width: 10px;
+        }
+
+        circle#c1 {
+            stroke: gray;
+            stroke-dashoffset: 0;
+        }
+
+        circle#c2 {
+            stroke: rgb(49, 49, 228);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <svg>
+            <circle r="28" cx="28" cy="28" id="c1"></circle>
+            <circle r="28" cx="28" cy="28" id="c2"></circle>
+        </svg>
+    </div>
+
+    <script>
+        const circ2 = document.getElementById('c2')
+        const raio = 28
+        const circunferencia = 2 * Math.PI * raio
+
+        circ2.style.strokeDasharray = circunferencia
+        circ2.style.strokeDashoffset = circunferencia
+        
+        window.addEventListener("scroll", () => {
+            const atual = window.scrollY
+            const maximoScroll = document.documentElement.scrollHeight - window.innerHeight
+
+            const progresso =  atual / maximoScroll
+            const offset = circunferencia * (1 - progresso)
+
+            circ2.style.strokeDashoffset = offset
+        })
+    </script>
+</body>
+</html>
