@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circulo</title>
+    <style>
+        body {
+            height: 1000vh;
+        }
+
+        div#posit {
+            height: 70px;
+            width: 105px;
+            top: 30px;
+            right: -39px;
+            position: fixed;
+        }
+
+        circle {
+            fill: none;
+            stroke: black;
+            stroke-width: 7px;
+            stroke-dasharray: 157;
+            stroke-dashoffset: 157;
+
+            transform: translate( 8px, 8px);
+        }
+
+        circle#c1 {
+            stroke-dashoffset: 0;
+            stroke: gainsboro;
+        }
+
+        circle#c2 {
+            stroke: rgb(0, 140, 255);
+            transition: stroke-dashoffset .0s;
+        }
+    </style>
+</head>
+<body>
+    <div id="posit">
+        
+        <svg>
+            <circle r="25" cx="25" cy="25" id="c1"></circle>
+            <circle r="25" cx="25" cy="25" id="c2"></circle>
+        </svg>
+       
+    </div>
+    <script>
+        const circp = document.getElementById('c2');
+        const raio = 25;
+        const circunferencia = 2 * Math.PI * raio;
+
+        // Configura o dash inicial
+        circp.style.strokeDasharray = circunferencia;
+        circp.style.strokeDashoffset = circunferencia;
+
+        window.addEventListener("scroll", () => {
+            const atual = window.scrollY;
+            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+            const progresso = atual / totalScroll;
+            const offset = circunferencia * (1 - progresso);
+
+            circp.style.strokeDashoffset = offset;
+        });
+    </script>
+</body>
+</html>
