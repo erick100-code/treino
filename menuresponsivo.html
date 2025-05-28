@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu responsivo</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header {
+            background-color:blue;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        nav.nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+
+        nav.nav-bar > div.logo {
+            display: flex;
+            align-items: center;
+        }
+
+        div.logo > h1 {
+            color: white;
+        }
+
+        nav.nav-bar > div.nav-list {
+            display: flex;
+            align-items: center;
+        }
+
+        div.nav-list > ul {
+            display: flex;
+            justify-content: center;
+
+            list-style: none; /* tiras as bolinhas da lista */
+        }
+
+        li.nav-item {
+            margin: 0px 15px;
+        }
+
+        a.nav-link {
+            color: white;
+            
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        a.nav-link:hover {
+            text-decoration: underline;
+        }
+
+        div.login-button > button {
+            padding: 10px 15px;
+            
+            border: none;
+            border-radius: 5px;
+        }
+
+        button > a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+        
+        div.mobile-menu-icons {
+            display: none;
+        }
+
+        div.mobile-menu {
+            display: none;
+        }        
+
+        @media screen and (max-width: 730px){
+            nav.nav-bar {
+                padding: 1.5rem 4rem;
+            }
+
+            li.nav-item {
+                display: none;
+            }
+
+            div.login-button {
+                display: none;
+            }
+
+            div.mobile-menu-icons {
+                display: block;
+            }
+
+            div.mobile-menu-icons > button {
+                border: none;
+                background-color: transparent;
+            }
+
+            .mobile-menu > ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                list-style: none; 
+
+                text-align: center;
+            }
+
+            div.mobile-menu li.nav-item {
+                display: block;
+                padding-top: 1.2rem;
+            }
+
+            div.mobile-menu > div.login-button {
+                display: block;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <h1>logo</h1>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="#" class="nav-link">início</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">projetos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">sobre</a></li>
+                </ul>
+            </div>
+
+            <div class="login-button">
+                <button>
+                    <a href="#">entrar</a>
+                </button>
+            </div>
+
+            <div class="mobile-menu-icons">
+                <button><img src="images/menu_white_36dp.svg" alt="menu icone"></button>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="#" class="nav-link">início</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">projetos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">sobre</a></li>
+            </ul>
+
+            <div class="login-button">
+                <button>
+                    <a href="#">entrar</a>
+                </button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
