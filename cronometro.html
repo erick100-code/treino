@@ -32,6 +32,7 @@
         }
 
         div#caixa > h1 {
+            padding: 30px;
             height: 300px;
             width: 300px;
             display: flex;
@@ -61,25 +62,31 @@
             order: 1;
         }
 
-        div#icones > button#parar{
+        div#icones > button#marcar{
             order: 2;
         }
 
         div#icones > button#reiniciar{
             order: 0;
         }
+
+        div#caixa > div#mark {
+            padding-top: 30px;
+
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="caixa">
-        <h1>00:00:00</h1>
+        <h1 id="time">00: 00: 00: 00</h1>
         
         <div id="icones">
-            <button id="iniciar">
+            <button id="iniciar" action="start">
                 <i class="fa-solid fa-play"></i>
             </button>
             
-            <button id="parar">
+            <button id="marcar">
                 <i class="fa-solid fa-flag"></i>
             </button>
             
@@ -87,10 +94,79 @@
                 <i class="fa-solid fa-rotate-right"></i>
             </button>
         </div>
+
+        <div id="mark"></div>
     </div>
 
     <script>
-        
+        const timerEl = document.getElementById('time')
+        const marksList = document.getElementById('mark')
+
+        const bot = document.getElementById('iniciar')
+        const marcar = document.getElementById('marcar') 
+        const finalizar = document.getElementById('reiniciar')
+
+        let intervalId = 0 //porque vamos trabalhar como setInterval
+        let timer = 0 //armazena o tempo que vai ser armazenado em centézimas de segundos
+        let marks = []    
+
+        const formatTime = (time) => {// formata o tempo
+            const horas = Math.floor(time / 360000)
+            const minutos = Math.floor((time % 360000) / 6000)
+            const segundos = Math.floor((time % 6000) / 100)
+            const hundredths = time % 100
+            
+            return `${horas.toString().padStart(2, '0')}: ${minutos.toString().padStart(2, '0')}: ${segundos.toString().padStart(2, '0')}: ${hundredths.toString().padStart(2, '0')}`
+        }// formata o tempo
+
+        const addmarklist = (markcasa, marcformato) => {
+            marksList.innerHTML += `<p>marca ${markcasa}: ${formatTime(marcformato)}</p>`
+        }
+
+        const marktime = () => {
+            if (timer > 0) {
+                marks.push(timer)
+                addmarklist(marks.length, timer)
+            } 
+        }
+
+        const toggleTimer = () => {// faz  o tempo acontecer
+            const botão = document.getElementById('iniciar')
+            const action = botão.getAttribute('action')
+
+            clearInterval(intervalId) // inicia um intervalo novo
+            
+            if (action == 'start' || action == 'continue') {
+                intervalId = setInterval(() => {
+                    timer += 1 
+                    setTimer(timer)
+                }, 10)
+                
+                botão.setAttribute('action', 'pause')
+                botão.innerHTML = '<i class="fa-solid fa-pause"></i>'
+            }else if (action == 'pause') {
+                botão.setAttribute('action', 'continue')
+                botão.innerHTML = '<i class="fa-solid fa-play"></i>'
+            }
+        }// faz o tempo acontecer 
+
+        const setTimer = (time) => {// função que mostra na tela
+            timerEl.innerText = formatTime(time)
+        }
+
+        const encerrar = () => {
+            clearInterval(intervalId)
+            timer = 0
+            setTimer(timer)
+            marksList.innerHTML = ''
+            marks = []
+            bot.setAttribute('action', 'start')
+            bot.innerHTML = '<i class="fa-solid fa-play"></i>'
+        }
+
+        bot.addEventListener("click", toggleTimer)
+        marcar.addEventListener("click", marktime)
+        finalizar.addEventListener("click", encerrar)
     </script>
 </body>
 </html>
