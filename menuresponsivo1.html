@@ -69,6 +69,8 @@
 
         div#começo > h1 {
             color: white;
+            
+            font-size: 2em;
         }
     
         nav > div#meio {
@@ -79,8 +81,62 @@
             display: none;
         }
 
+        nav > div#icodiv {
+            transform: scale(1.4);
+            /* transform: rotate(90deg); */
+        }
+
         div#icodiv > img {
             width: 100%;
+        }
+
+        @media screen and (min-width: 980px) {
+            nav > div#meio {
+                display: flex;
+            }
+            
+            div#meio > ul {
+                width: 200px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                list-style: none;
+            }
+
+            div#meio a {
+                color: white;
+                
+                font-size: 20px;
+                text-decoration: none;
+            }
+
+            div#meio a:hover {
+                text-decoration: underline;
+            }
+
+            nav > div#fim {
+                display: flex;
+            }
+
+            div#fim > a {
+                padding: 13px 20px;
+
+                background-color: darkgreen;
+                color: white;
+                border-radius: 5px;
+
+                font-size: 20px;
+                text-decoration: none;
+            }
+
+            nav > div#icodiv {
+                display: none;
+            }
+
+            header > div#menu {
+                display: none;
+            }
         }
 
     </style>
@@ -126,19 +182,28 @@
     <script>
         const menu = document.getElementById('menu')
         const ico = document.getElementById('ico')
+        const icodiv = document.getElementById('icodiv')
 
-        ico.style.cursor = 'pointer'
-        
-        ico.addEventListener("click", () => {
-            if (menu.style.display == 'none') {
+        function verificar() {
+              if (menu.style.display == 'none') {
                 menu.style.display = 'flex'
-                ico.setAttribute('src', 'images/close_white_36dp.svg')
+                ico.style.transform = 'rotate(90deg)'
+                ico.style.transition = 'all 1s linear'
+                setTimeout(() => {
+                    ico.setAttribute('src', 'images/close_white_36dp.svg')
+                }, 1000);
             
             } else {
                 menu.style.display = 'none'
                 ico.setAttribute('src', 'images/menu_white_36dp.svg')
+                ico.style.transform = 'rotate(0deg)'
             }
-        })
+        }
+
+        ico.style.cursor = 'pointer'
+        
+        icodiv.addEventListener("click", verificar, { once: true })// executa somente uma vez
+        ico.addEventListener("click", verificar)
     </script>
 </body>
 </html>

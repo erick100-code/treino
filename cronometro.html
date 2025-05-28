@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cronometro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        * {
+            margin: 0px;
+            padding: 0px;
+
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            background-image: linear-gradient(to top, red, blue);
+        }
+
+        div#caixa {
+            padding: 10px;
+            
+            border-radius: 7px;
+            background-color: white;
+        }
+
+        div#caixa > h1 {
+            height: 300px;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+
+            border: 1px solid blue;
+            border-radius: 100%;
+        }
+
+        div#caixa > div#icones {
+            display: flex;
+            gap: 0px 10px; 
+        }
+
+        div#icones > button {
+            width: 100%;
+            height: 50px;
+
+            border: none;
+            border-radius: 5px;
+            background-color: gainsboro;
+        }
+
+        div#icones > button#iniciar{
+            order: 1;
+        }
+
+        div#icones > button#parar{
+            order: 2;
+        }
+
+        div#icones > button#reiniciar{
+            order: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="caixa">
+        <h1>00:00:00</h1>
+        
+        <div id="icones">
+            <button id="iniciar">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            
+            <button id="parar">
+                <i class="fa-solid fa-flag"></i>
+            </button>
+            
+            <button id="reiniciar">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+</html>
