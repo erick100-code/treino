@@ -18,7 +18,7 @@
 
         header > div#menu {
             display: none;
-            overflow: hidden;
+
             flex-direction: column;
             align-items: center;
             
@@ -26,17 +26,22 @@
             
             text-align: center;
         }
-        
-         .disp {
-            display: flex; 
-        }
 
         div#menu > div#dlista > ul {
             list-style: none;
         }
 
-        ul > li{
+        div#dlista > ul > li{
             margin-bottom: 20px;
+        }
+
+        div#dlista a {
+            color: white;
+            text-decoration: none;
+        }
+
+        div#dlista a:hover {
+            text-decoration: underline;
         }
 
         div#menu > div#bot {
@@ -89,9 +94,9 @@
 
             <div id="meio">
                 <ul>
-                    <li>local</li>
-                    <li>home</li>
-                    <li>extras</li>
+                    <li><a href="#">local</a></li>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">extras</a></li>
                 </ul>
             </div>
             
@@ -107,9 +112,9 @@
         <div id="menu">
             <div id="dlista">
                 <ul>
-                    <li>início</li>
-                    <li>projeto</li>
-                    <li>sobre</li>
+                    <li><a href="#">início</a></li>
+                    <li><a href="#">projeto</a></li>
+                    <li><a href="#">sobre</a></li>
                 </ul>
             </div>
 
@@ -121,10 +126,17 @@
     <script>
         const menu = document.getElementById('menu')
         const ico = document.getElementById('ico')
+
         ico.style.cursor = 'pointer'
+        
         ico.addEventListener("click", () => {
-            menu.classList.toggle('disp')
-            window.alert("clicou")
+            if (menu.style.display == 'none') {
+                menu.style.display = 'flex'
+                ico.getAttribute('src')
+            
+            } else {
+                menu.style.display = 'none'
+            }
         })
     </script>
 </body>
