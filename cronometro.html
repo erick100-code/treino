@@ -119,11 +119,11 @@
             return `${horas.toString().padStart(2, '0')}: ${minutos.toString().padStart(2, '0')}: ${segundos.toString().padStart(2, '0')}: ${hundredths.toString().padStart(2, '0')}`
         }// formata o tempo
 
-        const addmarklist = (markcasa, marcformato) => {
+        const addmarklist = (markcasa, marcformato) => {// botão marcar flag
             marksList.innerHTML += `<p>marca ${markcasa}: ${formatTime(marcformato)}</p>`
         }
 
-        const marktime = () => {
+        const marktime = () => {// botão marcar flag
             if (timer > 0) {
                 marks.push(timer)
                 addmarklist(marks.length, timer)
