@@ -15,7 +15,7 @@ const formatTime = (time) => { // FORMATA O TEMPO
     const segundos = Math.floor((time % 6000) / 100)
     const microS = time % 100
 
-    return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}:${microS.toString().padStart(2, '0')}`
+    return `${horas.toString().padStart(2, '0')}: ${minutos.toString().padStart(2, '0')}: ${segundos.toString().padStart(2, '0')}: ${microS.toString().padStart(2, '0')}`
 }// RETORNA O FORMATO FORMATADO
 
 const marcar = (casaN, tempoT) => {
