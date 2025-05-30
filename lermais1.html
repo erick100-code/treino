@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ler mais e ler menos 1</title>
+    <style>
+        * {margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif;}
+
+        body {
+            min-height: 100vh; 
+            width: 100vw; 
+            overflow-x: hidden;
+
+            background-color: rgb(83, 66, 66);
+        }
+
+        main {
+            padding: 50px 0px;
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgb(83, 66, 66);
+        }
+
+        main > div#caixa {
+            width: 300px;
+            padding: 20px;
+            position: relative;
+
+            background-color: #00000062;
+        }
+
+        div#caixa > div#p1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 20px solid transparent;
+            border-top: 20px solid gold;
+            border-left: 20px solid gold;
+        }
+
+        div#caixa > div#p2{
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 20px solid transparent;
+            border-top: 20px solid gold;
+            border-right: 20px solid gold;
+        }
+
+        div#caixa > div#p3{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border: 20px solid transparent;
+            border-bottom: 20px solid gold;
+            border-left: 20px solid gold;
+        }
+
+        div#caixa > div#p4{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border: 20px solid transparent;
+            border-bottom: 20px solid gold;
+            border-right: 20px solid gold;
+        }
+
+        
+        div#caixa > div#cximage {
+       
+        }
+
+        div#cximage > img {
+            width: 100%;
+        }
+
+        div#caixa > div#text {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            
+            color: rgba(255, 255, 255, 0.658);
+            
+            text-align: justify;
+        }
+
+        div#text::after {
+            content: '';
+            height: 130px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            
+            background-image: linear-gradient(transparent, #3f3f3f);
+        }
+
+        main > div#caixa > div#text.active {
+            height: auto;
+        }
+
+        main > div#caixa > div#text.active::after {
+            opacity: 0;
+        }
+
+        div#text > h1 {  
+            margin: 20px 0px;
+
+            color: gold;
+            
+            text-align: center;
+        }
+
+        div#caixa > button {
+            width: 100%;
+            height: 40px;
+            margin: 5px 0px 20px 0px;
+
+            color: white;
+            background-color: gold;
+            border: none;
+        
+            font-size: 18px;
+            text-transform: capitalize;
+
+            transition: all .5s ease;
+        }
+
+        div#caixa > button:hover {
+            background-color: transparent;
+            color: gold;
+            border: 1px solid gold;
+
+            transition: all .5s ease;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="caixa">
+            <div id="p1"></div>
+            <div id="p2"></div>
+            <div id="p3"></div>
+            <div id="p4"></div>
+            <div id="cximage">
+                <img src="images/card.svg" alt="imagem de um cartão">
+            </div>
+
+            <div id="text">
+                <h1>uber etts</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rem modi libero quas totam impedit sed ex qui dignissimos! Dolores doloremque ratione temporibus sunt tenetur reiciendis aperiam necessitatibus expedita totam.
+                    Quis nisi possimus earum et voluptas! Laboriosam, deserunt dolorem? Repellendus magni dolores voluptatibus minima sed dolor obcaecati voluptates aliquid repellat facilis eius repudiandae corporis asperiores suscipit eligendi a, et quasi.
+                    Consequatur corporis eum quos labore minima, unde explicabo dignissimos error et cum consequuntur veniam accusamus. Enim tempora dolor excepturi facilis ullam nihil fuga soluta tempore fugit suscipit, maxime voluptates vero?
+                </p>
+            </div>
+
+            <button id="botão">ler mais</button>
+        </div>
+    </main>
+
+    <script>
+        const bot = document.getElementById('botão')
+        bot.addEventListener("click", () => {
+            const cxtexto = document.getElementById('text')
+            cxtexto.classList.toggle('active')
+            if (cxtexto.classList.contains('active')) {
+                return bot.textContent = 'Ler Menos'
+            }
+            bot.textContent = 'Ler Mais'
+        })
+    </script>
+</body>
+</html>
