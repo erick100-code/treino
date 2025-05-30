@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ler mais e ler menos</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #313131;
+        }
+
+        div#conteiner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            padding: 20px;
+            position: relative;
+
+            background-color: #3F3F3F;
+        }
+
+        div#conteiner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 20px solid transparent;
+            border-top: 20px solid rgb(0, 255, 0);
+            border-right: 20px solid rgb(0, 255, 0);
+        }
+        
+        div#conteiner > div#contImg {
+            width: 250px;
+        }
+
+        div#contImg > img {
+          width: 100%;  
+        }
+
+        div#conteiner > div#conttexto{
+            height:  275px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        div#conttexto::before {
+            content: '';
+            height: 120px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            background-image: linear-gradient(transparent, #3f3f3f);
+        }
+        
+        div#conttexto > h1 {
+            margin: 10px 0px;
+            position: relative;
+            
+            color: black;
+            
+            text-align: center;
+        }
+        
+        div#conttexto > h1::before {
+            content: '';
+            height: 3px;
+            width: 60px;
+            position: absolute;
+            bottom: 0px;
+
+            background-color: rgb(0, 255, 0);
+        }
+
+        div#conttexto > p {
+            color: rgba(255, 255, 255, 0.658);
+
+            text-align: justify;
+        }
+
+        div#conteiner > button {
+            margin: 10px 0px;
+            width: 100%;
+            padding: 7px;
+            font-size: 17px;
+
+            border: none;
+            background-color: rgb(0, 255, 0);
+
+            transition: all .3s ease;
+            cursor: pointer;
+        }
+
+        div#conteiner > button:hover {
+            background-color: transparent;
+            color: rgb(0, 255, 0);
+            
+            transition: all .3s ease;
+        }
+        
+        
+        div#conteiner > div#conttexto.active {/* só sobrescreve se tiver mais ESPECIFICIDADE */
+            height: auto;
+            overflow: visible;
+        }
+
+        div#conteiner > div#conttexto.active::before {
+            opacity: 0;
+        }
+        </style>
+</head>
+<body>
+    <div id="conteiner">
+        <div id="contImg">
+            <img src="images/ico.svg" alt="icone da parte da frente de um avião">
+        </div>
+
+        <div id="conttexto">
+            <h1>technology</h1>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae autem, hic ducimus consequatur at quis reiciendis, nobis odio mollitia repellat molestias quia delectus laborum ipsam sint inventore ea, consectetur tempora? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error modi delectus laboriosam voluptate autem, necessitatibus est natus, eveniet optio itaque magnam cupiditate explicabo velit eos eligendi. Excepturi ipsa ex velit.
+                Facere sapiente praesentium voluptates. Quas, corrupti natus libero expedita fugiat assumenda quibusdam dolor laboriosam et quam eveniet
+
+            </p>
+        </div>
+
+        <button>Read More</button>
+    </div>
+    <script>
+        const bot = document.getElementsByTagName("button")[0]
+        const conttexto = document.getElementById('conttexto')
+        
+        bot.addEventListener("click", () => {
+            conttexto.classList.toggle('active')   
+            if (conttexto.classList.contains('active')) {
+                return bot.textContent = 'Read Less' //return não executa as linhas debaixo
+            }
+
+            bot.textContent = 'Read More'
+            window.alert("não tem classe active ler menos")
+        })
+    </script>
+</body>
+</html>
