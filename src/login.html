@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tela de login</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="bg-blue-600 h-screen w-screen">
+    <main class="bg-blue-600/50 min-h-full w-full flex justify-center items-center">
+        <section id="conteiner" class="bg-white h-[600px] w-[370px]">
+            <div id="cximage">
+                
+            </div>
+
+            <div id="cxform" class=" h-full w-full flex justify-center items-center text-[22px]">
+                <form action="cadastro.php" class="bg-white h-[550px] w-[320px] flex flex-col justify-between">
+                    <div id="começo" class="flex justify-between items-center">
+                        <h1 class="text-[35px] capitalize relative">cadastre-se <div class="bg-blue-500 rounded-[5px] absolute bottom-0 w-[86px] h-[5px]"></div></h1>
+                        <input type="submit" value="entrar" class="bg-blue-500 text-white rounded-[5px] capitalize text-[18px] p-[5px_20px] border-none hover:cursor-pointer">
+                    </div>
+
+                    <div id="meio" class="grid gap-[30px_0px]">
+                        <div>
+                            <p class="capitalize pb-[10px]">primeiro nome</p>
+                            <input required type="text" minlength="3" name="nome" id="nome" placeholder="digite seu primeiro nome" class="shadow-[5px_5px_5px] shadow-[#0000003a] rounded-[5px] text-[16px] capitalize h-[40px] w-[200px] pl-[7px]">
+                        </div>
+                        <div>
+                            <p class="capitalize pb-[10px]">sobrenome</p>
+                            <input required type="text" minlength="3" name="sobrenome" id="sobrenome" placeholder="digite seu sobrenome" class="shadow-[5px_5px_5px] shadow-[#0000003a] rounded-[5px] text-[16px] capitalize h-[40px] w-[200px] pl-[7px]">
+                        </div>
+                        <div class="hidden">
+                            <p>e-email</p>
+                            <input required type="email" name="email" id="email" placeholder="digite seu email">
+                        </div>
+                        <div class="hidden">
+                            <p>celular</p>
+                            <input required type="number" name="numero" id="numero" placeholder="(xx) xxxx-xxxx">
+                        </div>
+                        <div class="hidden">
+                            <p>senha</p>
+                            <input required type="password" name="senha" id="senha" placeholder="digite sua senha">
+                        </div>
+                        <div class="hidden">
+                            <p>confirme sua senha</p>
+                            <input required type="password" name="senhaN" id="senhaN" placeholder="digite sua senha novamente">
+                        </div>
+                    </div>
+
+                    <div id="fim" class="">
+                        <p class="m-[30px_0px_15px_0px]">gênero</p>
+                        <div class=" flex flex-col gap-[15px_0px]">
+                            <div>
+                                <input type="radio" name="genero" id="F" class="transform-[scale(1.3)] mr-[8px]">
+                                <label for="F">feminino</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="genero" id="M" class="transform-[scale(1.3)] mr-[8px]">
+                                <label for="M">masculino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="continuar" type="submit" value="continuar" class="bg-blue-500 text-white rounded-[5px] w-full p-[10px_0px]">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="../javascript/login.js"></script>
+</body>
+</html>
