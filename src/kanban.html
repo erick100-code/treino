@@ -4,10 +4,443 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kanban</title>
-    <link href="./output.css" rel="stylesheet">
-    <link href="./input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-image: linear-gradient(90deg, #a5b4fc, #93c5fd);
+        }
+
+        .kanban {
+            display: flex; 
+            gap: 14px;
+            padding: 24px;
+            width: 100%;
+            height: 90vh;
+            overflow-x: auto;
+        }
+
+        .kanban-column {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            height: 100%;
+            min-width: 252px;
+            overflow-y: auto;
+            padding: 12px;
+            overflow: hidden;
+            position: relative;
+
+            background-color: #f6f8fc;
+            border-radius: 12px;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .kanban-column::after {
+            position: absolute;
+            content: '';
+            top: 0px;
+            left: 0px;  
+            width: 100%;
+            height: 5px;
+        }
+
+        .kanban-column[data-id="1"]::after {
+            background-color: rgb(255, 46, 46);
+        }
+        .kanban-column[data-id="2"]::after {
+            background-color: rgb(0, 140, 255);
+        }
+        .kanban-column[data-id="3"]::after {
+            background-color: rgb(238, 255, 0);
+        }
+        .kanban-column[data-id="4"]::after {
+            background-color: rgb(0, 13, 189);
+        }
+        .kanban-column[data-id="5"]::after {
+            background-color: rgb(0, 255, 149);
+        }
+
+        .kanban-title {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kanban-title  h2 {
+            color: #4b5563;
+            
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .add-card {
+            border: none;
+            background-color: transparent;
+            color: #4b5563;
+
+            font-size: 18px;
+            
+            cursor: pointer;
+        }
+
+        .kanban-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        
+            border-radius: 14px;
+        }
+
+        .cards-hover {
+            background-color: red;
+        }
+
+        .kanban-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 10px;
+
+            background-color:#ffffff;
+            box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+
+            cursor: pointer;
+        }
+
+        .dragging {
+            opacity: 0.5;
+        }
+
+        .badge {
+            width: fit-content;
+            /* ocupa somente o necessario */
+            padding: 4px 8px;
+
+            color: #ffffff;
+            background-color: #93c5fd;
+            border-radius: 12px;
+
+            font-size: 12px;
+        }
+
+        .badge.high {
+            background-color: #d573b6;
+        }
+
+        .badge.medium {
+            background-color: #fea065;
+        }
+
+        .badge.low {
+            background-color: #92a5fb;
+        }
+
+        .card-infos {
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 18px;
+        }
+
+        .card-icons i {
+            color: #a8a8aa;
+        }
+
+        .user img {
+            width: 42px;
+            height: 42px;
+            object-fit: cover;
+            /* 
+            faz a imagem prencher tudo sem deformar/esticar a imagem contarndo as laterais de fora
+            faz a mesma coisa que background-size cover só que para imagens no html <img></img>
+            */
+
+            border-radius: 100%;
+        } 
+
+        *::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background-color: #eaeffa;
+           
+            border-radius: 8px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: #a2c4f5;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <main class="kanban">
+        <!-- COLUNA 1 -->
+        <div class="kanban-column" data-id="1">
+            <div class="kanban-title">
+                <h2>pendente</h2>
+                
+                <button class="add-card">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" draggable="true">
+                    <div class="badge high">
+                        <span>
+                            alta prioridade
+                        </span>
+                    </div>
+
+                    <p class="card-title">
+                        revisar documento do projeto
+                    </p>
+
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                1
+                            </p>
+
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                2
+                            </p>
+                        </div>
+
+                        <div class="user">
+                            <img src="images/perfil1.jpg" alt="avatar 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- COLUNA 2 -->
+        <div class="kanban-column" data-id="2">
+            <div class="kanban-title">
+                <h2>em front end</h2>
+                
+                <button class="add-card">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" draggable="true">
+                    <div class="badge medium">
+                        <span>
+                            alta prioridade
+                        </span>
+                    </div>
+
+                    <p class="card-title">
+                        revisar documento do projeto
+                    </p>
+
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                1
+                            </p>
+
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                2
+                            </p>
+                        </div>
+
+                        <div class="user">
+                            <img src="images/perfil1.jpg" alt="avatar 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- COLUNA 3 -->
+        <div class="kanban-column" data-id="3">
+            <div class="kanban-title">
+                <h2>pendente</h2>
+                
+                <button class="add-card">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" draggable="true">
+                    <div class="badge low">
+                        <span>
+                            alta prioridade
+                        </span>
+                    </div>
+
+                    <p class="card-title">
+                        revisar documento do projeto
+                    </p>
+
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                1
+                            </p>
+
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                2
+                            </p>
+                        </div>
+
+                        <div class="user">
+                            <img src="images/perfil1.jpg" alt="avatar 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- COLUNA 4 -->
+        <div class="kanban-column" data-id="4">
+            <div class="kanban-title">
+                <h2>pendente</h2>
+                
+                <button class="add-card">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" draggable="true">
+                    <div class="badge high">
+                        <span>
+                            alta prioridade
+                        </span>
+                    </div>
+
+                    <p class="card-title">
+                        revisar documento do projeto
+                    </p>
+
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                1
+                            </p>
+
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                2
+                            </p>
+                        </div>
+
+                        <div class="user">
+                            <img src="images/perfil1.jpg" alt="avatar 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUNA 5 -->
+        <div class="kanban-column" data-id="5">
+            <div class="kanban-title">
+                <h2>pendente</h2>
+                
+                <button class="add-card">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="kanban-cards">
+                <div class="kanban-card" draggable="true">
+                    <div class="badge high">
+                        <span>
+                            alta prioridade
+                        </span>
+                    </div>
+
+                    <p class="card-title">
+                        revisar documento do projeto
+                    </p>
+
+                    <div class="card-infos">
+                        <div class="card-icons">
+                            <p>
+                                <i class="fa-regular fa-comment"></i>
+                                1
+                            </p>
+
+                            <p>
+                                <i class="fa-solid fa-paperclip"></i>
+                                2
+                            </p>
+                        </div>
+
+                        <div class="user">
+                            <img src="images/perfil1.jpg" alt="avatar 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.querySelectorAll('.kanban-card').forEach(card => {// pega todos os cards
+            card.addEventListener('dragstart', e => {// dispara o evento ao começar a arrastar
+                e.currentTarget.classList.add('dragging') //e.currentTarget  = pega elemento no qual o evento foi adicionado
+            })
+
+            card.addEventListener('dragend', e => {// qual eu soltar o item arrastado
+                e.currentTarget.classList.remove('dragging')
+            })
+        })
+
+        document.querySelectorAll('.kanban-cards').forEach(column => {
+            column.addEventListener('dragover', e => {// quando passa algo por cima permiti e adiciona a class
+                e.preventDefault()// permiti soltar elementos html
+                e.currentTarget.classList.add('cards-hover')
+            })
+
+            column.addEventListener('dragleave', event => {// quando sai com elemento de cima remove a class
+                event.currentTarget.classList.remove('cards-hover')
+            })
+
+            column.addEventListener('drop', event => {// quando e soltar um arrastavel em cima remove class
+                event.currentTarget.classList.remove('cards-hover')
+
+                const dragCard = document.querySelector('.kanban-card.dragging')
+               
+                event.currentTarget.appendChild(dragCard)
+            })
+        })
+    </script>
 </body>
 </html>
