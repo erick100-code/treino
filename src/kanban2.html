@@ -8,11 +8,11 @@
     <link href="./input.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="w-screen h-screen">
-    <main class="bg-blue-500 w-full h-full flex justify-center items-center p-[30px]">
-        <section class="w-full h-[90vh] flex">
-            <div id="coluna1" class="bg-white rounded-[10px] p-[10px] relative h-full w-[300px] flex flex-col min-h-0 gap-[30px_0px] after:w-full after:bg-amber-400 after:h-[8px] after:rounded-[5px] after:absolute after:content-[''] after:top-[0px] after:left-0">
-                <div id="top" class="flex items-center justify-between">
+<body class="min-h-[100vh] overflow-hidden bg-blue-500 min-w-screen">
+    <main class="bg-transparent w-full h-full flex justify-center items-center p-[30px_0px]">
+        <section class="w-full h-[90vh] p-[30px_10px] flex items-center gap-[0px_15px] overflow-x-auto">
+            <div class="bg-[#F6F8FC] rounded-[10px] p-[10px] relative h-full min-w-[252px] flex flex-col min-h-0 gap-[30px_0px] after:w-full after:bg-amber-400 after:h-[8px] after:rounded-[5px] after:absolute after:content-[''] after:top-[0px] after:left-0">
+                <div class="flex items-center justify-between">
                     <h1 class="text-[25px]">pendente</h1>
                     
                     <button class="text-[20px]">
@@ -20,15 +20,15 @@
                     </button>
                 </div>
 
-                <div id="interno" class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
-                    <div id="card" class="bg-green-500 rounded-[8px] p-[10px] flex flex-col">
-                        <p class="bg-amber-500 text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
+                <div class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
+                    <div class="bg-[#FFFFFF] shadow-[1px_1px_5px_black] rounded-[8px] p-[10px] flex flex-col gap-[10px_0px]">
+                        <p class="bg-purple-600 text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
 
-                        <div>revisar documento</div>
+                        <div>revisar documento do projeto</div>
                     
                         <div>
-                            <div id="icones" class="flex justify-between bg-amber-300">
-                                <div id="ico1" class="flex">
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-400 flex gap-[0px_15px] ">
                                     <p>
                                         <i class="fa-regular fa-comment"></i>
                                         1
@@ -40,7 +40,150 @@
                                     </p>
                                 </div>
                             
-                                <div id="imaged" class="bg-amber-700"><img src="images/perfil10.svg" alt="perfil" class="object-cover w-[50px] h-[50px]"></div>//resolver o problema da imagem
+                                <div class="rounded-[100%]"><img src="images/foto.jpg" alt="perfil" class="rounded-[100%] object-cover w-[50px] h-[50px]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coluna ">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-[25px]">pendente</h1>
+                    
+                    <button class="text-[20px]">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
+                    <div class="card" >
+                        <p class="bg-red-600 text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
+
+                        <div>revisar documento do projeto</div>
+                    
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-400 flex gap-[0px_15px] ">
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        1
+                                    </p>
+                                
+                                    <p>
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        2
+                                    </p>
+                                </div>
+                            
+                                <div class="rounded-[100%]"><img src="images/foto.jpg" alt="perfil" class="rounded-[100%] object-cover w-[50px] h-[50px]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coluna ">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-[25px]">pendente</h1>
+                    
+                    <button class="text-[20px]">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
+                    <div class="card" >
+                        <p class="bg-amber-600 text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
+
+                        <div>revisar documento do projeto</div>
+                    
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-400 flex gap-[0px_15px] ">
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        1
+                                    </p>
+                                
+                                    <p>
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        2
+                                    </p>
+                                </div>
+                            
+                                <div class="rounded-[100%]"><img src="images/foto.jpg" alt="perfil" class="rounded-[100%] object-cover w-[50px] h-[50px]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coluna ">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-[25px]">pendente</h1>
+                    
+                    <button class="text-[20px]">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
+                    <div class="card" >
+                        <p class="bg-green-600 text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
+
+                        <div>revisar documento do projeto</div>
+                    
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-400 flex gap-[0px_15px] ">
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        1
+                                    </p>
+                                
+                                    <p>
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        2
+                                    </p>
+                                </div>
+                            
+                                <div class="rounded-[100%]"><img src="images/foto.jpg" alt="perfil" class="rounded-[100%] object-cover w-[50px] h-[50px]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="coluna ">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-[25px]">pendente</h1>
+                    
+                    <button class="text-[20px]">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="rounded-[10px] w-full h-full overflow-y-auto overflow-x-hidden p-[3px]">
+                    <div class="card" >
+                        <p class="bg-black text-white rounded-[70px] text-[12px] p-[2px_5px] w-fit">alta prioridade</p>
+
+                        <div>revisar documento do projeto</div>
+                    
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-400 flex gap-[0px_15px] ">
+                                    <p>
+                                        <i class="fa-regular fa-comment"></i>
+                                        1
+                                    </p>
+                                
+                                    <p>
+                                        <i class="fa-solid fa-paperclip"></i>
+                                        2
+                                    </p>
+                                </div>
+                            
+                                <div class="rounded-[100%]"><img src="images/foto.jpg" alt="perfil" class="rounded-[100%] object-cover w-[50px] h-[50px]"></div>
                             </div>
                         </div>
                     </div>
@@ -48,5 +191,8 @@
             </div>
         </section>
     </main>
+    <script>
+        
+    </script>
 </body>
 </html>
