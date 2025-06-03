@@ -11,12 +11,9 @@ input.addEventListener('input', (event) => {
     items.forEach(item => {
         const title = item.querySelector('.title')
 
-        let encontrado = false
-
         if (formatar(title.textContent).indexOf(valorinp) != -1) {
             item.style.display = 'flex'
             temRes = true
-            encontrado = true
         } else {
             item.style.display = 'none'
         }
