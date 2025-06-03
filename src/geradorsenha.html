@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gerador de senha com html css e javaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main>
+        <div id="conteiner">
+            <img src="images/senha.svg" alt="cadeado verde">
+            <h1>gerar senha</h1>
+            
+            <div id="senhacaixa">
+                <span>
+                    aqui vai a senha
+                </span>
+
+                <div id="copy-icon"><i class="fa-solid fa-copy"></i></div>
+            </div>
+
+            <div id="requisitos">
+                <div id="quantidade">  
+                    <input type="number" name="quant" id="quant">
+                </div>
+
+                <div class="item">
+                    <input type="checkbox" name="maiuscula" id="maiuscula">
+                    <label for="maiuscula">incluir letra maiúscula</label>
+                </div>
+                
+                <div class="item">
+                    <input type="checkbox" name="minuscula" id="minuscula">
+                    <label for="minuscula">incluir letra minuscula</label>
+                </div>
+                
+                <div class="item">
+                    <input type="checkbox" name="numero" id="numero">
+                    <label for="numero">incluir número</label>
+                </div>
+                
+                <div class="item">
+                    <input type="checkbox" name="especial" id="especial">
+                    <label for="especial">incluir caractere especial</label>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
