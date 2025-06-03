@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barra de pesquisa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color:#C6D2FB;
+        }
+
+        div#container {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px 0px;
+        }
+
+        div#container > div.barra-de-pesquisa {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            gap: 0px 5px;
+            justify-content: start;
+            align-items: center;
+            padding: 10px 15px 10px 5px; 
+            
+            border-radius: 40px;
+            background-color: white;
+        }
+
+        div.barra-de-pesquisa > div.input-icon {
+            min-width: 30px;
+            min-height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 100%;
+            background-color: #6046DD;
+            color: white; 
+        }
+
+        div.input-icon > img {
+            object-fit: cover; 
+        }
+
+        div.barra-de-pesquisa > input[type="text"] {
+            width: 100%;
+
+            border: none;
+        }   
+
+        input[type="text"]:focus{
+            outline: none; /* tira a borda do input */ 
+        }
+
+        div#container > ul.items {
+            min-width: 100%;
+            padding: 15px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px 0px;
+            overflow: auto;
+
+            list-style: none;
+            border-radius: 40px;
+            background-color: white;
+        }
+
+        ul.items > li.item {
+            display: flex;  
+            gap: 0px 10px;
+        }
+
+        div.item-image > img {
+            width: 100px;
+            height: 130px;
+            object-fit: cover;
+        
+            border-radius: 8px;
+        }
+
+        div.conteudo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px 0px;
+        }
+
+        li.item > div.conteudo > h2 {
+            font-size: 20px;
+        }
+
+        div.conteudo > p.item-ano {
+            color: rgb(100, 98, 98);
+
+            font-size: 15px;
+        }
+
+        div.conteudo > p.item-description {
+            color: rgb(100, 98, 98);
+            
+            font-size: 14px;
+        }
+
+        p#nenhum {
+            display: none;
+
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="barra-de-pesquisa">
+            <div class="input-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <input type="text" name="text" id="inputxt" placeholder="pesquisar">
+        </div>
+
+        <ul class="items" id="cx">
+            <li class="item">
+                <div class="item-image">
+                    <img src="images/avangers.jpg" alt="imagem vingadores">
+                </div>
+                
+                <div class="conteudo">
+                    <h2 class="item-title">avangers</h2>
+
+                    <p class="item-ano">
+                        <i class="fa-solid fa-film"></i>
+                        filme (2019)
+                    </p>
+
+                    <p class="item-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam obcaecati asperiores 
+                    </p>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="item-image">
+                    <img src="images/duna.jpg" alt="imagem duna">
+                </div>
+                
+                <div class="conteudo">
+                    <h2 class="item-title">duna</h2>
+
+                    <p class="item-ano">
+                        <i class="fa-solid fa-film"></i>
+                        filme (2015)
+                    </p>
+
+                    <p class="item-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam obcaecati 
+                    </p>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="item-image">
+                    <img src="images/harry-potter.png" alt="imagem harry potter">
+                </div>
+                
+                <div class="conteudo">
+                    <h2 class="item-title">harry potter</h2>
+
+                    <p class="item-ano">
+                        <i class="fa-solid fa-film"></i>
+                        filme (2018)
+                    </p>
+
+                    <p class="item-description">
+                        aqui vai a descrição de teste ipsum dolor sit amet consectetur adipisicing elit. Ullam obcaecati 
+                    </p>
+                </div>
+            </li>
+           
+            <p id="nenhum">nenhum item encontrado</p>
+            
+        </ul>
+    </div>
+
+    <script>
+        const inpu = document.getElementById('inputxt')// pega o input texto
+
+        inpu.addEventListener('input', (event) => {// toda vez que dar foco e trocar o campo do input, executa bloco
+            const valorinp = formatString(event.target.value)// valorinp recebe o valor do input formatado na função
+
+            const items = document.querySelectorAll('.item')// seleciona todo li da ul que é a lista
+            const nenhum = document.getElementById('nenhum')// seleciona o paragrafo (nenhum item encontrado)
+            const ul = document.getElementById('cx')// seleciona a lista
+
+            let temRes = false// var tem resultado do item recebe false ou seja não tem resultado
+
+            items.forEach(item => {// pega todo item, li, e aplica o bloco para cada um deles individualmente 
+                const itemTitle = item.querySelector('.item-title').textContent// pega o texto do titulo de cada li
+                const descript = item.querySelector('.item-description').textContent// pega o texto da descrição de cada li
+
+                if ((formatString(itemTitle).indexOf(valorinp)) !== -1 || formatString(descript).indexOf(valorinp) !== -1) {// verfica em cada li se o titulo desse li for encontrado no valor do input ou  descrição for encontrada dentro do input
+                    item.style.display = 'flex'// se achar no input o titulo ou a descrição o item fica visivel 
+                    temRes = true // aqui diz que achou
+                } else {// se não achar no titulo ou na descrição do item
+                    item.style.display = 'none' // esse item não aparece na tela
+                }
+            })
+
+            if (temRes) {// se temRes for verdadero. estrutura if por padrão verifica true se não colocar
+                ul.style.height = '400px'
+                nenhum.style.display = 'none' // o p de não tem resultado fica invivivel porque tem resultado
+            } else {// senão se temRes for falso
+                ul.style.height = 'auto'// ul caixa fica no tamanho automatico
+                nenhum.style.display = 'block'// o p não tem resultado fica visivel
+            }
+
+        })
+
+        function formatString(value) {// ,trim() tira os espaços
+            return value // retorna
+                .toLowerCase()// o valor em minusculos
+                .trim()// sem espaços antes ou depois
+                .normalize('NFD')// tranforma assentos em algo
+                .replace(/[\u0300-\u036d]/g, '')// tranforma assentos em vazio
+        }       
+    </script>
+</body>
+</html>
