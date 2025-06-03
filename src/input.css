@@ -19,3 +19,23 @@
 .bg {
     @apply bg-amber-500
 }
+
+.item {
+    @apply min-w-full flex gap-[0px_15px]
+}
+
+.image {
+    @apply rounded-[10px] w-[150px] h-[150px] object-cover shrink-0
+}
+
+.conteudo {
+    @apply flex flex-col justify-start gap-[2px_0px]
+}
+
+.title {
+    @apply text-[20px]
+}
+
+.paragrafos {
+    @apply text-[14px]
+}

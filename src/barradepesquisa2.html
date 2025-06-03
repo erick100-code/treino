@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barra de pesquisa2</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-[100vh] w-[100vw]">
+    <main class="bg-blue-700 h-screen w-full flex justify-center items-center">
+        <div id="conteiner" class="flex flex-col gap-[30px_0px] w-[400px] h-[400px]">
+            <div id="barra" class="bg-white rounded-[30px] p-[10px_30px_10px_10px] w-full flex gap-[0px_13px]">
+                <div id="cxico" class="bg-green-400 text-white rounded-[100%] min-w-[35px] min-h-[35px] flex justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <input type="text" name="inpu" id="inpu" class="border-none w-full focus:outline-none">
+            </div>
+
+            <ul class="bg-white rounded-[30px] p-[20px] flex flex-col gap-[20px_0px] overflow-auto h-full min-w-full" id="caxa">
+                <li class="item">
+                    <div class="!w-[30%]">
+                        <img src="images/avangers.jpg" alt="vingadores" class="image">
+                    </div>
+                    
+                    <div class="conteudo !w-[70%]">
+                        <h1 class="title">vingadores</h1>
+
+                        <p class="text-[12px]">
+                            <i class="fa-solid fa-film"></i> (2019)
+                        </p>
+
+                        <p class="paragrafos">
+                            anos apos thanos dizimar metade da população ao estalar de dedos.
+                        </p>
+                    </div>
+                </li>
+                 <li class="item">
+                    <div class="!w-[30%]">
+                        <img src="images/duna.jpg" alt="duna image" class="image">
+                    </div>
+                    
+                    <div class="conteudo !w-[70%]">
+                        <h1 class="title">duna</h1>
+
+                        <p class="text-[12px]">
+                            <i class="fa-solid fa-film"></i> (2019)
+                        </p>
+
+                        <p class="paragrafos">
+                            ao viajar aos planetas em busca de novas aventuras um grupo de jovens encontra um homem perdido porem muito misterioso.
+                        </p>
+                    </div>
+                </li>
+                 <li class="item">
+                    <div class="!w-[30%]">
+                        <img src="images/harry-potter.png" alt="harry-potter" class="image">
+                    </div>
+                    
+                    <div class="conteudo !w-[70%]">
+                        <h1 class="title">harry potter</h1>
+
+                        <p class="text-[12px]">
+                            <i class="fa-solid fa-film"></i> (2019)
+                        </p>
+
+                        <p class="paragrafos">
+                           ao caminhar pelo castelo de hougorts o garot poter encontra uma criatura mitologica demoniaca capas de transformar seres em pedras apenas pelo olhar
+                        </p>
+                    </div>
+                </li>
+                 <li class="item">
+                    <div class="!w-[30%]">
+                        <img src="images/perfil3.jpg" alt="perfil 3" class="image">
+                    </div>
+                    
+                    <div class="conteudo !w-[70%]">
+                        <h1 class="title">jovens modernos</h1>
+
+                        <p class="text-[12px]">
+                            <i class="fa-solid fa-film"></i> (2019)
+                        </p>
+
+                        <p class="paragrafos">
+                            anos apos thanos dizimar metade da população ao estalar de dedos.
+                        </p>
+                    </div>
+                </li>
+                <p id="nen" class="text-center hidden">nenhum item foi encontrado</p>
+            </ul>
+        </div>
+    </main>
+    
+    <script src="../javascript/barradepesquisa.js"></script>
+</body>
+</html>
