@@ -5,47 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gerador de senha com html css e javaScript</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
 </head>
-<body>
-    <main>
-        <div id="conteiner">
-            <img src="images/senha.svg" alt="cadeado verde">
-            <h1>gerar senha</h1>
+<body class="bg-[#131219] min-h-screen w-screen">
+    <main class="bg-[#131219] min-h-screen w-screen flex justify-center items-center">
+        <div id="conteiner" class="text-white flex flex-col items-center w-[300px] h-[300px] gap-[10px]">
+            <img src="images/senha.svg" alt="cadeado verde" class="w-[90px] h-[90px] object-cover">
+            <h1 class="text-[30px] capitalize">gerar senha</h1>
             
-            <div id="senhacaixa">
+            <div id="senhacaixa" class="bg-[#24232A] rounded-[10px] flex justify-between items-center w-full p-[10px_10px]">
                 <span>
-                    aqui vai a senha
+                    8p64b
                 </span>
 
-                <div id="copy-icon"><i class="fa-solid fa-copy"></i></div>
+                <div id="copy-icon"><i class="fa-solid fa-copy text-[20px] text-[#7AB047] hover:cursor-pointer copy hover:text-[#7ab022]"></i></div>
             </div>
-
-            <div id="requisitos">
-                <div id="quantidade">  
-                    <input type="number" name="quant" id="quant">
+            <div id="requisitos" class="bg-[#24232A] rounded-[10px] w-full p-[10px] flex flex-col gap-[10px_0px]">
+                <div id="quantidade" class="flex items-center gap-[0px_7px]">  
+                    <input type="number" name="quant" id="quant" class="bg-white text-black border-none rounded-[5px] h-[25px] w-[65px] p-[5px]">
+                    <label for="quant">quantidade de caracteres</label>
                 </div>
-
-                <div class="item">
+                
+                <div class="checkbox">
                     <input type="checkbox" name="maiuscula" id="maiuscula">
                     <label for="maiuscula">incluir letra maiúscula</label>
                 </div>
                 
-                <div class="item">
+                <div class="checkbox">
                     <input type="checkbox" name="minuscula" id="minuscula">
-                    <label for="minuscula">incluir letra minuscula</label>
+                    <label for="minuscula">incluir letra minúscula</label>
                 </div>
                 
-                <div class="item">
+                <div class="checkbox">
                     <input type="checkbox" name="numero" id="numero">
                     <label for="numero">incluir número</label>
                 </div>
                 
-                <div class="item">
+                <div class="checkbox">
                     <input type="checkbox" name="especial" id="especial">
                     <label for="especial">incluir caractere especial</label>
                 </div>
+
+                <button class="w-full bg-[#82B748] text-black capitalize font-[500] rounded-[5px] h-[35px] hover:cursor-pointer" id="btn">gerar senha</button>
             </div>
         </div>
     </main>
+
+    <script src="../javascript/gerarsenha.js"></script>
 </body>
 </html>

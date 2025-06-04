@@ -39,3 +39,26 @@
 .paragrafos {
     @apply text-[14px]
 }
+
+.copy:hover {
+    animation: ident 2s linear infinite;
+}
+
+@keyframes ident {
+    from, to {
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(120%);
+    }
+}
+
+#quant::-webkit-inner-spin-button,
+#quant::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.checkbox {
+    @apply flex gap-[0px_5px]
+}
