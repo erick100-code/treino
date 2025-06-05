@@ -11,10 +11,12 @@
     --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-green-300: oklch(87.1% 0.15 154.449);
     --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-green-800: oklch(44.8% 0.119 151.328);
     --color-emerald-600: oklch(59.6% 0.145 163.225);
     --color-cyan-400: oklch(78.9% 0.154 211.53);
     --color-blue-500: oklch(62.3% 0.214 259.815);
@@ -224,6 +226,12 @@
   }
   .mr-\[8px\] {
     margin-right: 8px;
+  }
+  .mb-\[10px\] {
+    margin-bottom: 10px;
+  }
+  .mb-\[20px\] {
+    margin-bottom: 20px;
   }
   .mb-\[35px\] {
     margin-bottom: 35px;
@@ -438,6 +446,15 @@
   .gap-\[0px_15px\] {
     gap: 0px 15px;
   }
+  .gap-\[0px_20px\] {
+    gap: 0px 20px;
+  }
+  .gap-\[5px\] {
+    gap: 5px;
+  }
+  .gap-\[8px\] {
+    gap: 8px;
+  }
   .gap-\[10px\] {
     gap: 10px;
   }
@@ -542,6 +559,9 @@
   .bg-\[gold\] {
     background-color: gold;
   }
+  .bg-amber-400 {
+    background-color: var(--color-amber-400);
+  }
   .bg-amber-500 {
     background-color: var(--color-amber-500);
   }
@@ -608,11 +628,17 @@
   .p-\[5px_0px\] {
     padding: 5px 0px;
   }
+  .p-\[5px_5px\] {
+    padding: 5px 5px;
+  }
   .p-\[5px_20px\] {
     padding: 5px 20px;
   }
   .p-\[7px_0px\] {
     padding: 7px 0px;
+  }
+  .p-\[10px-5px\] {
+    padding: 10px-5px;
   }
   .p-\[10px\] {
     padding: 10px;
@@ -626,8 +652,14 @@
   .p-\[10px_10px\] {
     padding: 10px 10px;
   }
+  .p-\[10px_30px\] {
+    padding: 10px 30px;
+  }
   .p-\[10px_30px_10px_10px\] {
     padding: 10px 30px 10px 10px;
+  }
+  .p-\[10px_\] {
+    padding: 10px ;
   }
   .p-\[15px_10px\] {
     padding: 15px 10px;
@@ -713,11 +745,17 @@
   .text-gray-400 {
     color: var(--color-gray-400);
   }
+  .text-green-300 {
+    color: var(--color-green-300);
+  }
   .text-green-500 {
     color: var(--color-green-500);
   }
   .text-green-700 {
     color: var(--color-green-700);
+  }
+  .text-green-800 {
+    color: var(--color-green-800);
   }
   .text-white {
     color: var(--color-white);

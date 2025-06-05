@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- #24232A -->
+<body class="bg-[#131219] w-screen h-screen flex justify-center items-center">
+    <div id="container" class="bg-transparent text-white flex flex-col items-center gap-[10px_0px] w-[300px]">
+        <img src="images/senha.svg" alt="cadeado verde" class="w-[100px] h-[100px] object-cover">
+        <h2 class="text-[25px]">gerador de senha</h2>
+
+        <div id="senhacx" class="bg-[#24232A] rounded-[10px] hidden justify-between items-center w-full p-[10px_5px]">
+            <span class="truncate" id="txts">
+                
+            </span>
+
+            <div><i class="fa-solid fa-copy text-green-500 text-[20px] hover:cursor-pointer" id="copyicon"></i></div>
+        </div>
+
+        <div id="config" class="bg-[#24232A] rounded-[10px] capitalize p-[10px] w-full flex flex-col gap-[8px]">
+            <div class="flex items-center gap-[0px_10px] mb-[10px]">
+                <input type="number" name="quantc" id="quantC" class="bg-white text-black rounded-[5px] text-center w-[70px] focus:outline-none">
+                <label for="quantC">quantidade de caracteres</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="maiuscula" id="maiusculas">
+                <label for="maiusculas">incluir letra maiúsculas</label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="minusculas" id="minusculas">
+                <label for="minusculas">incluir letra minusculas</label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="numeros" id="numeros">
+                <label for="numeros">incluir numero</label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="especial" id="especial">
+                <label for="especial">incluir caracter especial</label>
+            </div>
+
+            <button id="btn" class="bg-green-500 rounded-[5px] text-black font-semibold w-full p-[5px_0px] hover:cursor-pointer">gerar senha</button>
+        </div>
+    </div>
+    <script src="../javascript/gerarsenha3.js"></script>
+</body>
+</html>
