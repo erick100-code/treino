@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *:not(dialog) {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #6367F1;
+        }
+
+        button.open-modal {
+            padding: 5px 15px;
+
+            border-radius: 10px;
+            border: none;
+            color: gold;
+        
+            font-size: 15px;
+        
+            cursor: pointer;
+        }
+
+        dialog::backdrop {/* pega a propriedade de fundo do modal */
+            background-color: rgba(0, 0, 0, 0.692);
+        }
+
+        dialog {
+            width: 350px;
+            padding: 18px;
+            
+            border-radius: 10px;
+            border: none;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .close-modal {
+            color: rgb(61, 2, 2);
+            border: none;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px 0px;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 5px 0px;
+        }
+
+        .inputs > input {
+            display: flex;
+            align-items: center;
+            padding: 10px 10px;
+
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background-color: #f9fafb;
+        }
+
+        .inputs > input:focus {
+            outline: 1px solid #6164EB;
+        }
+
+        .senhas-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lembrar-senha {
+            display: flex;
+            align-items: center;
+            gap: 0px 5px;
+
+            font-size: 14px;
+        }
+
+        .senhas-options a {
+            color: rgba(0, 0, 255, 0.705);
+
+            font-size: 12px;
+            text-decoration: underline;
+        }
+
+        #login-button {
+            padding: 10px 10px;
+
+            border: none;
+            color: white;
+            border-radius: 6px;
+            background-color: #6164EB;
+            
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        .register {
+            display: flex;
+            gap: 7px;
+
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+
+        .register > a {
+            color: #6164Eb;
+
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- MODAL 1 -->
+
+    <button class="open-modal" data-modal="modal-1">
+        open modal 1
+    </button>
+
+    <dialog id="modal-1">
+        <form>
+
+            <!-- aqui fica a parte de cima com o titulo e botão de fechar -->
+            
+            <div id="modal-header">
+                <h1 class="modal-title">faça login em nossa plataforma</h1>
+
+                <!-- type button para não enviar formulario, se quisesse enviar usaria o type="submit" -->
+
+                <button class="close-modal" data-modal="modal-1" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- aqui vai ficar o corpo, inputs etc -->
+
+            <div class="modal-body">
+                <div class="inputs">
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email" placeholder="exemple@gmail.com">
+                </div>
+                
+                <div class="inputs">
+                    <label for="senha">senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="**********">
+                </div>
+            
+                <div class="senhas-options">
+                    <div class="lembrar-senha">
+                        <input type="checkbox" name="relembrar_senha" id="relembrar_senha">
+                        <label for="relembrar_senha">relembrar senha</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">esqueci minha senha</a>
+                </div>
+
+                <button id="login-button">login para sua conta</button>
+
+                <div class="register">
+                    <span>não registrado?</span>
+                    <a href="#">login aqui</a>
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+    <script>
+        const modals = document.querySelectorAll('.open-modal')
+
+        modals.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modalId = btn.getAttribute('data-modal') 
+                const modal = document.getElementById(modalId)
+                
+                // modal mostra o moldal normal
+
+                modal.showModal() //showModal = já vem estilizado para nada funcionar até fechar
+            })
+        })
+
+        const closebtn = document.querySelectorAll('.close-modal')
+
+        closebtn.forEach(closeM => {    
+            closeM.addEventListener('click', () => {
+                const modalId = closeM.getAttribute('data-modal')
+                const modal = document.getElementById(modalId)
+             
+                modal.close()// fecha o modal
+            })
+        })
+    </script>
+</body>
+</html>

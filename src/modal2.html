@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal v2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="h-screen w-screen bg-amber-300 flex justify-center items-center">
+    <button id="abrirB" local-id="modalLocate" class="bg-white rounded-[10px] text-[25px] p-[5px_8px] hover:cursor-pointer">abir o modal</button>
+
+    <dialog id="modalLocate" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] backdrop:bg-blue-500">
+        <div class="h-full w-full flex justify-evenly items-center">
+            <h1>abriu o modal</h1>
+            <p id="fechar" local-id="modalLocate"><i class="fa-solid fa-xmark"></i></p>
+        </div>
+    </dialog>
+
+    <script>
+        const abrirB = document.querySelector('#abrirB')// pega o botão de abrir
+        const fechar = document.querySelector('#fechar')// pega o icone de fechar
+
+        abrirB.addEventListener('click', () => {// quando clicar no botão de abrir
+            const local = abrirB.getAttribute('local-id')// variavel local recebe o atributo do botão clicado
+            const modal = document.getElementById(local)// variavel modal seleciona o modal
+
+            modal.showModal()// faz o modal aparecer
+            // showModal faz ele aparecer estilazado e com o fundo morto até que feche o modal
+        })
+
+        fechar.addEventListener('click', () =>{// ao clicar no icone de fechar 
+            const fet = fechar.getAttribute('local-id')// fet recebe o atributo do icone de fechar
+            const modal = document.getElementById(fet)// variavel modal seleciona o dialog/modal
+        
+            modal.close()// fecha o modal
+        })
+    </script>
+</body>
+</html>
