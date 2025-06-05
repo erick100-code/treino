@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gerador de senha</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[#131219] h-screen w-screen flex justify-center items-center">
+    <div id="conteiner" class=" text-white flex flex-col items-center gap-[10px_0px] w-[350px]">
+        <img src="images/senha.svg" class="object-cover w-[100px] h-[100px]">
+        <h2 class="text-[30px] capitalize">gerar senha</h2>
+        <div id="senhacx" class="bg-[#24232A] rounded-[15px] hidden w-full  justify-between items-center p-[10px_10px]">
+            <span class="truncate" id="local">
+            </span>
+            <div id="cxico"><i class="fa-solid fa-copy text-[20px] text-green-500"></i></div>
+        </div>
+
+        <div id="config" class="bg-[#24232A] w-full rounded-[15px] p-[10px] flex flex-col gap-[10px]">
+            <div id="cxquant" class="flex gap-[0px_10px]">
+                <input type="number" name="quant" id="quant" class="w-[70px] h-[30px] text-black bg-white rounded-[5px] border-none focus:outline-none text-center">
+                <label for="quant">quantidade de caracteres</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="maiusculo" id="maiusculas">
+                <label for="maiusculas">adicionar letras maiusculas</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="mainuscula" id="minusculas">
+                <label for="minusculas">adicionar letras minusculas</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="number" id="numero">
+                <label for="numero">adicionar numero</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="especial" id="especial">
+                <label for="especial">adicionar caracter especial</label>
+            </div>
+
+            <button id="bot" class="bg-green-500 text-black rounded-[5px] font-semibold w-full p-[7px_0px]">gerar senha aleatória</button>
+        </div>
+    </div>
+
+    <script src="../javascript/gerarsenha2.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gerador de senha com html css e javaScript</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="./output.css" rel="stylesheet">
     <link href="./input.css" rel="stylesheet">
 </head>
@@ -14,12 +15,12 @@
             <img src="images/senha.svg" alt="cadeado verde" class="w-[90px] h-[90px] object-cover">
             <h1 class="text-[30px] capitalize">gerar senha</h1>
             
-            <div id="senhacaixa" class="bg-[#24232A] rounded-[10px] flex justify-between items-center w-full p-[10px_10px]">
-                <span>
+            <div id="senhacaixa" class="bg-[#24232A] rounded-[10px] hidden justify-between items-center w-full p-[10px_10px]">
+                <span id="span" class="truncate">
                     8p64b
                 </span>
 
-                <div id="copy-icon"><i class="fa-solid fa-copy text-[20px] text-[#7AB047] hover:cursor-pointer copy hover:text-[#7ab022]"></i></div>
+                <div id="copy-icon"><i class="fa-solid fa-copy text-[20px] text-[#7AB047] hover:cursor-pointer  hover:text-[#7ab022]"></i></div>
             </div>
             <div id="requisitos" class="bg-[#24232A] rounded-[10px] w-full p-[10px] flex flex-col gap-[10px_0px]">
                 <div id="quantidade" class="flex items-center gap-[0px_7px]">  
@@ -52,6 +53,7 @@
         </div>
     </main>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../javascript/gerarsenha.js"></script>
 </body>
 </html>
