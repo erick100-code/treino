@@ -11,7 +11,7 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: 1000vh;
     display: flex;
 
     background-color: #e3e9f7;
@@ -22,9 +22,13 @@ nav#sidebar {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    min-width: 82px;
+    position: fixed;
 
     border-radius: 0px 18px 18px 0px;
     background-color: white;
+
+    transition: all .5s;
 }
 
 div#sidebar_content {
@@ -106,6 +110,8 @@ li.side-item a i {
 
 div#logout {
     padding: 12px;
+    display: flex;
+    justify-content: center;
 
     border: 1px solid #e3e9f7;
 }
@@ -113,8 +119,9 @@ div#logout {
 button#logout_btn {
     display: flex;
     align-items: center;
+
     padding: 12px;
-    gap: 0px 20px;
+    gap: 0px 0px;
 
     background-color: transparent;
     border-radius: 8px;
@@ -132,7 +139,7 @@ button#open_btn {
     right: -10px;
     height: 20px;
     width: 20px;
-
+    
     background-color: #4f46e5;
     color: #e3e9f7;
     border-radius: 100%;
@@ -141,17 +148,43 @@ button#open_btn {
     cursor: pointer;
 }
 
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
 .item-description {
     width: 0px;
+    height: 0px;
     overflow: hidden;/* esconde todos os elementos fora da largura */
     white-space: nowrap;/* caso o texto for muito grande ele não quebra */
     text-overflow: ellipsis; /* caso o texto for muito grande adiciona 3 pontos no final*/
+
+    transition: width .6s;
 }
 
 main {
     padding: 20px;
+    padding-left: calc(82px + 20px);
 }
 
-#sidebar.open-sidebar {
-    
+nav#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+nav#sidebar.open-sidebar .item-description {
+    width: 150px;
+    height: auto;
+}
+
+nav#sidebar.open-sidebar .side-item a  {
+    gap: 0px 14px;
+    justify-content: start;
+}
+
+nav#sidebar.open-sidebar button#logout_btn {
+    gap: 0px 20px;
 }
