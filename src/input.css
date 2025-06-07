@@ -62,3 +62,55 @@
 .checkbox {
     @apply flex gap-[0px_5px]
 }
+
+.rc {
+    @apply p-[15px] rounded-[5px] cursor-pointer flex items-start justify-center
+}
+
+.rca {
+    @apply flex gap-[0px] items-center justify-center text-[20px]
+}
+
+.rca .txt {
+    @apply text-[18px]
+}
+
+.rch:hover {
+    @apply bg-gray-500/15
+}
+
+.active {
+    @apply bg-blue-500 text-white
+}
+
+.iconn {
+    @apply w-[20px] h-[20px] flex items-center justify-center text-[16px] text-center
+}
+
+.txt {
+    @apply w-[0px] truncate transition-[width] ease-in duration-[500ms] h-[0px]
+}
+
+nav#menul.adtivada {
+    @apply min-w-[15%]
+}
+
+nav#menul.adtivada .txt {
+    @apply w-[150px] h-auto
+}
+
+nav#menul.adtivada .rca {
+    @apply gap-[10px]
+}
+
+nav#menul.adtivada .btf {
+    @apply gap-[20px]
+}
+
+#seta {
+    @apply transition-all ease-in duration-[500ms]
+}
+
+nav#menul.adtivada #seta {
+    @apply transform-[rotate(180deg)]
+}
