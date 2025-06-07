@@ -118,3 +118,7 @@
 .gratavot {
     @apply bg-blue-400/80 text-white
 }
+
+.abary {
+    @apply min-w-[15%] 
+} 
