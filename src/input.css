@@ -91,19 +91,19 @@
     @apply w-[0px] truncate transition-[width] ease-in duration-[500ms] h-[0px]
 }
 
-nav#menul.adtivada {
+#menul.adtivada {
     @apply min-w-[15%]
 }
 
-nav#menul.adtivada .txt {
+#menul.adtivada .txt {
     @apply w-[150px] h-auto
 }
 
-nav#menul.adtivada .rca {
+#menul.adtivada .rca {
     @apply gap-[10px]
 }
 
-nav#menul.adtivada .btf {
+#menul.adtivada .btf {
     @apply gap-[20px]
 }
 
@@ -111,6 +111,10 @@ nav#menul.adtivada .btf {
     @apply transition-all ease-in duration-[500ms]
 }
 
-nav#menul.adtivada #seta {
+#menul.adtivada #seta {
     @apply transform-[rotate(180deg)]
+}
+
+.gratavot {
+    @apply bg-blue-400/80 text-white
 }
