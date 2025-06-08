@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="w-screen h-screen">
+
+    <main class="w-screen h-screen bg-[url('images/background.png')] bg-no-repeat bg-cover flex justify-center items-center">
+
+        <div class="h-[450px] w-[300px] group/container perspective-[1000px]">
+
+            <div class="relative group-hover/container:transform-[rotateY(-180deg)] transform-3d transition-[transform] duration-1000">
+            
+                <div class="absolute backface-hidden">
+                    <img src="images/front.jpg" class="rounded-[35px] h-full w-full object-cover">
+                </div>
+
+                <div class="absolute transform-[rotateY(-180deg)] backface-hidden">
+                    <img src="images/back.jpg" class="rounded-[35px] h-full w-full object-cover">
+                </div>
+            
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
