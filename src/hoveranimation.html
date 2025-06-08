@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover animation</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="h-screen w-screen">
+    <main class="bg-[#1666C8] h-screen w-screen flex justify-center items-center">
+        <section class="bg-white w-[350px] h-[300px] relative flex justify-center transition-all duration-500 ease-in group/caixa hover:h-[400px] rounded-[10px]">
+
+            <div id="imgbox" class="w-full h-auto absolute top-0 group-hover/caixa:-top-[90px] transition-all duration-500 ease-in">
+                <img src="images/ninrode.png" alt="atornauta" class="object-cover w-[230px] h-[230px] m-auto group-hover/caixa:scale-[0.8] transition-all duration-500 ease-in">
+            </div>
+
+            <div id="conteudo" class="absolute top-[220px] h-[80px] overflow-hidden text-center flex flex-col justify-start items-center gap-[10px_0px] group-hover/caixa:h-[280px] group-hover/caixa:top-[100px] transition-all duration-500 ease-in p-[25px]">
+                <h1 class="text-[2em]">titulo de nivel de 1</h1>
+               
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit nam et, dolorem, deserunt, dolor quibusdam fugit repellendus adipisci ducimus illum vitae sequi soluta? Repellendus vero nisi saepe obcaecati dolore porro?
+                </p>
+
+                <button class="w-full p-[10px_0px] bg-linear-to-r from-purple-500 to-purple-700 rounded-[5px] text-white font-semibold">read more</button>
+            </div>
+            
+        </section>
+    </main>
+</body>
+</html>
