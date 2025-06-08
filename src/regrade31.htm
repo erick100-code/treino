@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regra de 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body class="bg-blue-600 h-screen w-full">
+    <main class="bg-linear-to-r from-amber-400 to-amber-600 h-screen w-full flex justify-center items-center">
+        <section class="bg-[#262626] text-white text-center rounded-[5px] w-[300px] p-[10px] flex flex-col gap-[25px_0px]">
+            <h1 class="text-[2em] capitalize">regra de três</h1>
+            
+            <div class="flex flex-col gap-[5px_0px]">
+            
+                <div class="flex items-center justify-center">
+                    
+                    <input type="number" name="a" id="a" class="bg-[#343434] w-[80px] h-[40px] outline-none text-center rounded-[5px] border-[1px] border-amber-400" placeholder="A">
+                    
+                    <span class="bg-[#353435] w-[120px] flex items-center justify-center">está para</span>
+                    
+                    <input type="number" name="b" id="b" class="bg-[#343434] w-[80px] h-[40px] outline-none text-center rounded-[5px] border-[1px] border-amber-400" placeholder="B">
+                
+                </div>
+                
+                <span>assim como</span>
+                
+                <div class="flex justify-center items-center">
+                
+                    <input type="number" name="c" id="c" class="bg-[#343434] w-[80px] h-[40px] outline-none text-center rounded-[5px] border-[1px] border-amber-400" placeholder="C">
+                    
+                    <span class="bg-[#353435] w-[120px] flex items-center justify-center">está para</span>
+                    
+                    <div id="resp" class="bg-linear-to-r from-amber-400 to-amber-600 flex justify-center items-center w-[80px] h-[40px] outline-none text-center rounded-[5px]"><i class="fa-solid fa-x"></i></div>
+                
+                </div>
+            
+            </div>
+
+            <button id="btn" class="bg-linear-to-r from-amber-400 to-amber-600 rounded-[5px] font-semibold text-[18px] w-full h-[35px] cursor-pointer">calcular</button>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            const a = document.getElementById('a')
+            const b = document.getElementById('b')
+            const c = document.getElementById('c')
+        
+            if (a.value.length == 0 || b.value.length == 0 || c.value.length == 0) {
+                window.alert("valores incompletos, prencha todos os campos antes de calcular!")
+            } else {
+                const A = parseFloat(a.value)
+                const B = parseFloat(b.value)
+                const C = parseFloat(c.value)
+                const res = document.getElementById('resp')
+                
+                const calc = (C * B) / A
+
+                if (Number.isInteger(calc)) {
+                    res.textContent = calc
+                } else {
+                    res.textContent = calc.toFixed(2).replace('.', ',')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
