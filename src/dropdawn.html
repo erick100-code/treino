@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdawn menu</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+</head>
+<body>
+    <!-- box sizing = tudo que é aplicado no filho não ultrapassa o pai -->
+    <nav class="bg-gray-600">
+        <ul class="flex">
+            <!-- tags a são do tipo inline block margins e padding só funcionam na horizontal não na vertical  -->
+            <li class="relative group/home">
+                <a href="#" class="p-[15px] block hover:bg-red-600">serviços</a>
+                <div class="flex-col w-full text-center bg-gray-600 absolute -bottom-[176px] hidden group-hover/home:flex">
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">backback</a>
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">inicial</a>
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">final</a>
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">completo</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="p-[15px] block hover:bg-red-600">sobre</a>
+            </li>
+            <li class="flex flex-col group/abre relative">
+                <a href="#" class="p-[15px] block hover:bg-red-600">serviços</a>
+                <div class="hidden flex-col w-full text-center group-hover/abre:flex absolute -bottom-[132px] bg-gray-600">
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">serviço 1</a>
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">serviço 2</a>
+                    <a href="#" class="p-[10px_0px] hover:bg-red-600">serviço 3</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="p-[15px] block hover:bg-red-600">contatos</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
