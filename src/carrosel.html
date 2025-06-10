@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        div.container {
+            position: relative;
+            margin: 0 auto;
+            padding: 15px;
+            max-width: 640px;
+        }
+
+        .arrow-left, .arrow-right {
+            position: absolute;
+            left: 0;
+            right: auto;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            
+            background-image: linear-gradient(to left, transparent 0%, black 200%);
+            color: #fff;
+            border: none;
+            opacity: .1;
+
+            line-height: 250px;
+            font-size: 20px;
+            text-align: center;
+
+            transition: all 600ms ease-in-out;
+            cursor: pointer;
+        }
+
+        .arrow-right {
+            left: auto;
+            right: 0;
+
+            background-image: linear-gradient(to right, transparent 0%, black 200%);
+        }
+
+        .arrow-left:hover, .arrow-right:hover {
+            opacity: 1;
+        }
+        
+        div.gallery-wraper {
+            overflow-x: auto; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        div.gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 0px 15px;
+        }
+        
+        .item {
+            height: 250px;
+            width: 250px;
+            flex-shrink: 0;
+            
+            opacity: .6;
+            object-fit: cover;
+            
+            transition: all 600ms ease-in-out;
+        }
+        
+        .current-item {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <button class="arrow-left"><i class="fa-solid fa-play"></i></button>
+        <button class="arrow-right"><i class="fa-solid fa-play"></i></button>
+        
+        <div class="gallery-wraper">
+        
+            <div class="gallery">
+
+                <img src="images/manha.jpg" class="item current-item">
+                <img src="images/tarde.jpg" class="item">
+                <img src="images/noite.jpg" class="item">
+                <img src="images/sea.jpg" class="item">
+            
+            </div>
+        
+        </div>
+    
+    </div>   
+</body>
+</html>
