@@ -83,8 +83,8 @@
 <body>
     <div class="container">
 
-        <button class="arrow-left"><i class="fa-solid fa-play"></i></button>
-        <button class="arrow-right"><i class="fa-solid fa-play"></i></button>
+        <button class="arrow-left control"><i class="fa-solid fa-play"></i></button>
+        <button class="arrow-right control"><i class="fa-solid fa-play"></i></button>
         
         <div class="gallery-wraper">
         
@@ -100,5 +100,40 @@
         </div>
     
     </div>   
+
+    <script>
+        const controls = document.querySelectorAll('.control')
+        const items = document.querySelectorAll('.item')
+        const maxItem = items.length
+        let currentItem = 0
+
+        controls.forEach(control => {
+            control.addEventListener('click', () => {
+                left = control.classList.contains('arrow-left')
+            
+                if (left) {
+                    currentItem -= 1
+                } else {
+                    currentItem += 1
+                }
+                
+                if (currentItem >= maxItem) {
+                    currentItem = 0
+                }
+                
+                if (currentItem < 0) {
+                    currentItem = maxItem - 1
+                }
+
+                items.forEach(item => item.classList.remove('current-item'))
+                items[currentItem].scrollIntoView({
+                    inline: "center",
+                    behavior: "smooth",
+                })
+
+                items[currentItem].classList.add('current-item')
+            })
+        })
+    </script>
 </body>
 </html>
