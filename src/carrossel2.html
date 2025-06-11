@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="min-h-screen w-screen">
+    <main class="min-h-screen w-screen flex justify-center items-center bg-black">
+        <section class="p-[0px_30px] w-[500px] relative">
+           
+            <button class="bg-linear-to-l from-transparent to-black text-white opacity-[.4] text-center w-[50px] absolute left-0 top-0 bottom-0 hover:opacity-[1] cursor-pointer bot esquerda border-none"><i class="fa-solid fa-play"></i></button>
+           
+            <button class="bg-linear-to-r from-transparent to-black text-white opacity-[.4] text-center w-[50px] absolute right-0 top-0 bottom-0 hover:opacity-[1] cursor-pointer bot direita border-none"><i class="fa-solid fa-play transform-[rotate(180deg)]"></i></button>
+         
+            <div class="overflow-auto esconde">
+         
+                <div class="flex gap-[0px_15px]">
+                    <img src="images/manha.jpg" class="transition-all duration-[.8s] ease-in-out w-[300px] h-[300px] opacity-[.4] object-cover subit apareceu">
+                    <img src="images/tarde.jpg" class="transition-all duration-[.8s] ease-in-out w-[300px] h-[300px] opacity-[.4] object-cover subit">
+                    <img src="images/noite.jpg" class="transition-all duration-[.8s] ease-in-out w-[300px] h-[300px] opacity-[.4] object-cover subit">
+                    <img src="images/sea.jpg" class="transition-all duration-[.8s] ease-in-out w-[300px] h-[300px] opacity-[.4] object-cover subit">
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+    <script>
+        const bots = document.querySelectorAll('.bot')
+        const images = document.querySelectorAll('.subit')
+        const maxMages = images.length
+        let currentMage = 0
+
+        bots.forEach(bot => {
+            bot.addEventListener('click', () => {
+                let left = bot.classList.contains('esquerda')
+                
+                if (left) {
+                    currentMage -= 1
+                } else {
+                    currentMage += 1
+                }
+
+                if (currentMage < 0) {
+                    currentMage = maxMages - 1
+                }
+
+                if (currentMage >= maxMages) {
+                    currentMage = 0
+                }
+
+                images.forEach(img => img.classList.remove('apareceu'))
+
+                images[currentMage].scrollIntoView({
+                    inline: "center",
+                    behavior: "smooth"
+                })
+
+                images[currentMage].classList.add('apareceu')
+            })
+        })
+    </script>
+</body>
+</html>

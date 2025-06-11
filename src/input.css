@@ -122,3 +122,12 @@
 .abary {
     @apply min-w-[15%] 
 } 
+
+.esconde {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.apareceu {
+    @apply opacity-[1]
+}

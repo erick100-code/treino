@@ -12,9 +12,17 @@
             box-sizing: border-box;
         }
 
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: black;
+        }
+
         div.container {
             position: relative;
-            margin: 0 auto;
             padding: 15px;
             max-width: 640px;
         }
@@ -126,6 +134,7 @@
                 }
 
                 items.forEach(item => item.classList.remove('current-item'))
+                
                 items[currentItem].scrollIntoView({
                     inline: "center",
                     behavior: "smooth",
